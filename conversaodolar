@@ -1,0 +1,20 @@
+programa
+{
+	
+	funcao inicio()
+	{
+	      
+          real num1, num2
+
+          escreva("Para fazer a conversão do dolar para reais digite abaixo: ")
+          
+		escreva("\nA cotação do dólar hoje: ")
+		leia (num1)
+
+		escreva("O valor em dolar que deseja converter: ")
+		leia (num2)
+
+		escreva("\nO valor em reais sem taxas é: ", num1*num2)
+
+	}
+}
