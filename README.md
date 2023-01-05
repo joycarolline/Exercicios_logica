@@ -1,2 +1,2 @@
 # exercicios-de-logica
-Exercícios de logica realizados no portugol.
+Exercícios de lógica realizados no portugol.
