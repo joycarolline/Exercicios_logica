@@ -1,0 +1,39 @@
+
+//Pimeira tabela Pessoa
+
+CREATE TABLE public.pessoa (
+	pessoa_id int4 NOT NULL,
+	nome varchar(200) NOT NULL,
+	cpf varchar(25) NOT NULL,
+	idade date NULL,
+	sexo bpchar(1) NOT NULL,
+	CONSTRAINT pessoa_pk PRIMARY KEY (pessoa_id)
+);
+
+
+// Segunda tabela endereço
+
+CREATE TABLE public.endereço (
+	endereco_id int4 NOT NULL,
+	tipo varchar(10) NOT NULL,
+	logradouro varchar(250) NOT NULL,
+	numero varchar(10) NOT NULL,
+	complemento varchar(100) NULL,
+	cep numeric NOT NULL,
+	cidade varchar(250) NULL,
+	estado bpchar(2) NOT NULL,
+	pessoa_id int4 NOT NULL,
+	CONSTRAINT endereço_pk PRIMARY KEY (endereco_id)
+);
+
+
+-- public.endereço foreign keys
+
+ALTER TABLE public.endereço ADD CONSTRAINT endereço_fk FOREIGN KEY (pessoa_id) REFERENCES public.pessoa(pessoa_id);
+
+// Comando para buscar informações das duas tabelas
+
+SELECT nome, cpf, idade, sexo, endereco_id, tipo, logradouro, numero, complemento, cep, cidade, estado
+FROM public.pessoa p 
+inner join public.endereço e on p.pessoa_id = e.pessoa_id
+
